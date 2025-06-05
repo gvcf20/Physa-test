@@ -15,7 +15,7 @@ def runGame(debug):
 
     print(f'Player {winner} Wins')
 
-    return None
+    return winner
 
 if __name__ == '__main__':
 
