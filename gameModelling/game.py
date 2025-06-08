@@ -10,6 +10,8 @@ class Game:
 
         self.players = {1:player1,2:player2}
 
+        self.snake_counter = {1:0,2:0}
+
         self.round = 1
 
         self.stairs = {3:16, 5:7,15:25, 18:20, 21:32} # Key represents the base and values the top of the stair
@@ -43,7 +45,7 @@ class Game:
 
             self.players[player] += dice_result
 
-            self.check_stairs_and_snakes(player)
+            self.snake_counter[player] += self.check_stairs_and_snakes(player)
 
             if self.players[player] >= 36:
 
@@ -64,6 +66,8 @@ class Game:
             self.log(f'Player {player} will climb a stair from {self.players[player]} to {self.stairs[self.players[player]]}\n')
 
             self.players[player] = self.stairs[self.players[player]]
+
+            return 0
             
         elif self.players[player] in self.snakes_head:
             
@@ -71,7 +75,9 @@ class Game:
 
             self.players[player] = self.snakes[self.players[player]]
 
-        return None
+            return 1
+
+        return 0
 
 
 

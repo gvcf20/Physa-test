@@ -16,7 +16,7 @@ def winningProbability():
 
     for i in (range(10000)):
 
-        winner = runGame()
+        winner,_ = runGame()
 
         if winner == 1:
             player1 += 1

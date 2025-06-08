@@ -16,7 +16,7 @@ def runGame(debug = False):
     if debug == True:
         print(f'Player {winner} Wins')
 
-    return winner
+    return winner, game
 
 if __name__ == '__main__':
 
