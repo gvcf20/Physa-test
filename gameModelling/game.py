@@ -24,7 +24,7 @@ class Game:
 
         self.on = False
 
-        self.imunity2 = True
+        self.immunity2 = True
         
         pass
 
@@ -88,7 +88,7 @@ class Game:
         elif self.players[player] in self.snakes_head:
             
             if player == 1:
-                
+
                 self.log(f'Player {player} fell into a snake and will go to position {self.snakes[self.players[player]]} \n')
 
                 self.players[player] = self.snakes[self.players[player]]
@@ -96,7 +96,7 @@ class Game:
                 return 1
             else:
 
-                if self.imunity2 and self.snake_counter[2] == 0:
+                if self.immunity2 and self.snake_counter[2] == 0:
 
                     return 1
 
