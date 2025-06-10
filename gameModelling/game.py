@@ -22,6 +22,8 @@ class Game:
 
         self.dice_throws = {1:0,2:0}
 
+        self.on = False
+        
         pass
 
     def throw_dice(self):
@@ -93,5 +95,8 @@ class Game:
 
 
     def stair_probabilities(self):
-        return random.randint(1,2)
+        if self.on == True:
+            return random.randint(1,2)
+        else:
+            return 1
 

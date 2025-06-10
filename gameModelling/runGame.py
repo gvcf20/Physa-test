@@ -1,9 +1,9 @@
 from gameModelling.game import Game
 
 
-def runGame(debug = False):
+def runGame(init1 = 1, init2 = 1,debug = False):
 
-    game = Game(1,1, debug)
+    game = Game(init1,init2, debug)
 
     winner = 0
 
