@@ -20,6 +20,8 @@ class Game:
         self.snakes = {12:2, 14:11, 17:4, 31:19, 35:22} # Key represents head and values the tail of the snake
         self.snakes_head = list(self.snakes.keys())
 
+        self.dice_throws = {1:0,2:0}
+
         pass
 
     def throw_dice(self):
@@ -40,6 +42,8 @@ class Game:
             self.log(f'Player {player} at position {player_position} \n')
 
             dice_result = self.throw_dice()
+
+            self.dice_throws[player] += 1
 
             self.log(f'Dice result for player {player}: {dice_result} \n')
 
@@ -63,11 +67,19 @@ class Game:
 
         if self.players[player] in self.stairs_base:
 
-            self.log(f'Player {player} will climb a stair from {self.players[player]} to {self.stairs[self.players[player]]}\n')
+            climb = self.stair_probabilities()
 
-            self.players[player] = self.stairs[self.players[player]]
+            if climb == 1:
 
-            return 0
+                self.log(f'Player {player} will climb a stair from {self.players[player]} to {self.stairs[self.players[player]]}\n')
+
+                self.players[player] = self.stairs[self.players[player]]
+
+                return 0
+            
+            else:
+
+                return 0
             
         elif self.players[player] in self.snakes_head:
             
@@ -80,4 +92,6 @@ class Game:
         return 0
 
 
+    def stair_probabilities(self):
+        return random.randint(1,2)
 
