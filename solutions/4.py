@@ -35,18 +35,18 @@ def winningProbability(j):
     
 from collections import Counter
 
-def contar_numeros(start_position2):
-    contador = Counter()
+def count_numbers(list):
+    counter = Counter()
 
-    for sublist in start_position2:
+    for sublist in list:
         for item in sublist:
             if isinstance(item, tuple):
                 numero = item[0]
-                contador[numero] += 1
+                counter[numero] += 1
             else:
-                 contador[item] += 1
+                 counter[item] += 1
 
-    return contador
+    return counter
     
 if __name__ == '__main__':
 
@@ -64,7 +64,7 @@ if __name__ == '__main__':
 
         start_position2.append(numeros)
 
-    resultado = contar_numeros(start_position2)
+    resultado = count_numbers(start_position2)
     print(resultado)
     with open("resultado4.txt", "w") as f:
         for numero, count in resultado.items():
