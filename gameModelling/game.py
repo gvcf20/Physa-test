@@ -23,6 +23,8 @@ class Game:
         self.dice_throws = {1:0,2:0}
 
         self.on = False
+
+        self.imunity2 = True
         
         pass
 
@@ -85,11 +87,18 @@ class Game:
             
         elif self.players[player] in self.snakes_head:
             
-            self.log(f'Player {player} fell into a snake and will go to position {self.snakes[self.players[player]]} \n')
+            if player == 1:
+                
+                self.log(f'Player {player} fell into a snake and will go to position {self.snakes[self.players[player]]} \n')
 
-            self.players[player] = self.snakes[self.players[player]]
+                self.players[player] = self.snakes[self.players[player]]
 
-            return 1
+                return 1
+            else:
+
+                if self.imunity2 and self.snake_counter[2] == 0:
+
+                    return 1
 
         return 0
 
