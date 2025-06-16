@@ -35,7 +35,7 @@ if __name__ == '__main__':
     prob_range = []
     for i in tqdm(range(1000)):
         prob_range.append(winningProbability())
-        
+    
     plt.hist(prob_range, bins=5, edgecolor='black')
 
     plt.title('Histograma dos Dados')

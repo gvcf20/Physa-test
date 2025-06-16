@@ -55,6 +55,7 @@ class Game:
 
             self.snake_counter[player] += self.check_stairs_and_snakes(player)
 
+
             if self.players[player] >= 36:
 
                 self.log(f'Player {player} Wins \n')
@@ -97,7 +98,9 @@ class Game:
             else:
 
                 if self.immunity2 and self.snake_counter[2] == 0:
-
+                    return 1
+                else:
+                    self.players[player] = self.snakes[self.players[player]]
                     return 1
 
         return 0
